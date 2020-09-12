@@ -53,7 +53,13 @@ public class Bank {
     
     for(int i = 0; i<strArr.length;i++){
       
-      memory_list_input.add(strArr[i].split(",',"));
+
+          memory_list_input.add(strArr[i].split(",',"));
+          
+          memory_list_input.get(i)[0] = this.formatDate(memory_list_input.get(i)[0]);
+
+          memory_list_input.get(i)[1] = this.formatTime(memory_list_input.get(i)[1]);
+
       
     }
     
@@ -94,6 +100,25 @@ public class Bank {
     }
     
   }
+  
+  public String formatDate(String date){
+    
+    String[] split_date = date.split("-");
+    
+    return split_date[1] + "/" + split_date[2] + "/" + split_date[0];
+    
+  }
+  
+  public String formatTime(String time){
+    
+        
+    String[] split_time = time.split(":");
+    
+    return split_time[0] + ":" + split_time[1];
+    
+  }
+    
+  
   
   public void closeBank(){
     
